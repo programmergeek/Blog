@@ -10,7 +10,6 @@ export const Header: React.FC<Props> = ({ ...props }) => {
       style={{
         position: "relative",
         width: "fit-content",
-        border: "1px solid red",
       }}
     >
       <h1 style={{ fontSize: "80px", zIndex: 10, position: "relative" }}>
