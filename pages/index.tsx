@@ -2,12 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { Header, Text } from "../Components";
+import { Header, Text, Title } from "../Components";
 
 export default function Home() {
   return (
     <div>
-      <Header>Something That We Need In Difficult Times</Header>
+      <Header>Most Read</Header>
+      <Title>Something That We Need In Difficult Times</Title>
       <Text>
         Big cities are known for having huge traffic congestion. Therefore, suck
         situations are suitable for car accidents. That is why it is important
