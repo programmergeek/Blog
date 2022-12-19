@@ -11,5 +11,9 @@ const lato = Lato({
 });
 
 export const Text: React.FC<Props> = ({ ...props }) => {
-  return <p className={lato.className}>{props.children}</p>;
+  return (
+    <p className={lato.className} {...props}>
+      {props.children}
+    </p>
+  );
 };
