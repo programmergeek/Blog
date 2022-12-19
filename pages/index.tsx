@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { Header, Text, Title } from "../Components";
+import { Header, Subtext, Text, Title } from "../Components";
 
 export default function Home() {
   return (
@@ -15,6 +15,7 @@ export default function Home() {
         that we know how to react in such situations. In additions to how
         important it is to protect ourselves healthfully when car accidents...
       </Text>
+      <Subtext>Article by Thamas Spencer</Subtext>
     </div>
   );
 }
