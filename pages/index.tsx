@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import { Header, Subtext, Text, Title } from "../Components";
+import { Btn } from "../Components";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         important it is to protect ourselves healthfully when car accidents...
       </Text>
       <Subtext>Article by Thamas Spencer</Subtext>
+      <Btn size={"lg"}>#travel</Btn>
     </div>
   );
 }
