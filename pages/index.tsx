@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { Crd, Header, Subtext, Text, Title } from "../Components";
+import { Crd, Header, ImageCard, Subtext, Text, Title } from "../Components";
 import { Btn } from "../Components";
 import { Card } from "@nextui-org/react";
 
@@ -19,17 +19,8 @@ export default function Home() {
       </Text>
       <Subtext>Article by Thamas Spencer</Subtext>
       <Btn size={"lg"}>#travel</Btn>
-      <Crd
-        css={{
-          maxWidth: 700,
-          height: 500,
-          border: "2px solid black",
-          borderRadius: 0,
-          backgroundColor: "White",
-        }}
-        variant="flat"
-      >
-        <Card.Body css={{ padding: 25, paddingTop: 50 }}>
+      <Crd>
+        <Card.Body>
           <Title>This is Sparta</Title>
           <Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
@@ -39,6 +30,10 @@ export default function Home() {
           </Text>
         </Card.Body>
       </Crd>
+      <ImageCard
+        category="Test"
+        imgSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXB547H1Bb9-7moaX5nLqSTuwlGSjIn0C6H1akn0Z00hxb46hPrHti2WoFE2q35NAdg30&usqp=CAU"
+      />
     </div>
   );
 }
