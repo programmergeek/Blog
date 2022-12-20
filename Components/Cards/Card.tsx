@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardProps } from "@nextui-org/react";
 
-export const Crd: React.FC<CardProps> = ({ ...props }) => {
+export const Crd: React.FC<CardProps> = ({ css, ...props }) => {
   return (
     <Card
       variant="flat"
@@ -12,6 +12,7 @@ export const Crd: React.FC<CardProps> = ({ ...props }) => {
         paddingTop: 25,
         paddingLeft: 10,
         paddingRight: 10,
+        ...css,
       }}
       {...props}
     >
