@@ -21,46 +21,54 @@ export const HighlightPost: React.FC = () => {
           position: "relative",
         }}
       >
-        <div
-          style={{
-            height: "fit-content",
-            width: "fit-content",
-            position: "absolute",
-            zIndex: 10,
-            right: 35,
-            bottom: "5%",
-            display: "flex",
-            flexDirection: "column",
-            gap: 5,
-          }}
-        >
-          {[
-            "Software",
-            "Software",
-            "Software",
-            "Software",
-            "Software",
-            "Software",
-            "Software",
-            "Software",
-          ].map((val, i) => (
-            <Crd css={{ padding: 0 }} key={i}>
-              <p
-                style={{
-                  fontFamily: "Teko",
-                  letterSpacing: ".01rem",
-                  writingMode: "vertical-rl",
-                  rotate: "180deg",
-                  marginTop: 10,
-                  marginBottom: 10,
-                }}
-              >
-                {val}
-              </p>
-            </Crd>
-          ))}
-        </div>
-        <Card.Image src="https://picsum.photos/750/650" objectFit="cover" />
+        <Card.Body css={{ p: 0 }}>
+          <div
+            style={{
+              height: "fit-content",
+              width: "fit-content",
+              position: "absolute",
+              zIndex: 10,
+              right: 35,
+              bottom: "5%",
+              display: "flex",
+              flexDirection: "column",
+              gap: 5,
+            }}
+          >
+            {[
+              "Software",
+              "Software",
+              "Software",
+              "Software",
+              "Software",
+              "Software",
+              "Software",
+              "Software",
+            ].map((val, i) => (
+              <Crd css={{ padding: 0 }} key={i}>
+                <p
+                  style={{
+                    fontFamily: "Teko",
+                    letterSpacing: ".01rem",
+                    writingMode: "vertical-rl",
+                    rotate: "180deg",
+                    marginTop: 10,
+                    marginBottom: 10,
+                  }}
+                >
+                  {val}
+                </p>
+              </Crd>
+            ))}
+          </div>
+          <Card.Image
+            src="https://picsum.photos/750/650"
+            objectFit="cover"
+            width="100%"
+            height="100%"
+            alt="Post hero image"
+          />
+        </Card.Body>
       </Crd>
       <Crd
         css={{
