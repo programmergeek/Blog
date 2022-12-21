@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { Crd, Header, ImageCard, Subtext, Text, Title } from "../Components";
+import { Crd, Header, Subtext, Text, Title } from "../Components";
 import { Btn } from "../Components";
 import { Card } from "@nextui-org/react";
 
@@ -30,10 +30,6 @@ export default function Home() {
           </Text>
         </Card.Body>
       </Crd>
-      <ImageCard
-        category="Test"
-        imgSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXB547H1Bb9-7moaX5nLqSTuwlGSjIn0C6H1akn0Z00hxb46hPrHti2WoFE2q35NAdg30&usqp=CAU"
-      />
     </div>
   );
 }
