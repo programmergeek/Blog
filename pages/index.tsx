@@ -2,7 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { Crd, Header, Subtext, Text, Title } from "../Components";
+import {
+  Crd,
+  Header,
+  HighlightPost,
+  Subtext,
+  Text,
+  Title,
+} from "../Components";
 import { Btn } from "../Components";
 import { Card } from "@nextui-org/react";
 
@@ -30,6 +37,7 @@ export default function Home() {
           </Text>
         </Card.Body>
       </Crd>
+      <HighlightPost />
     </div>
   );
 }
