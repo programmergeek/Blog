@@ -2,42 +2,22 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import {
-  Crd,
-  Header,
-  HighlightPost,
-  Subtext,
-  Text,
-  Title,
-} from "../Components";
-import { Btn } from "../Components";
-import { Card } from "@nextui-org/react";
+import { HighlightPost } from "../Components";
 
 export default function Home() {
   return (
     <div>
-      <Header>Most Read</Header>
-      <Title>Something That We Need In Difficult Times</Title>
-      <Text>
-        Big cities are known for having huge traffic congestion. Therefore, suck
-        situations are suitable for car accidents. That is why it is important
-        that we know how to react in such situations. In additions to how
-        important it is to protect ourselves healthfully when car accidents...
-      </Text>
-      <Subtext>Article by Thamas Spencer</Subtext>
-      <Btn size={"lg"}>#travel</Btn>
-      <Crd>
-        <Card.Body>
-          <Title>This is Sparta</Title>
-          <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-            commodi accusantium cumque exercitationem quisquam iste iusto fugiat
-            facere consequatur, blanditiis eveniet voluptas distinctio. Vel
-            distinctio expedita a aperiam, mollitia nam!
-          </Text>
-        </Card.Body>
-      </Crd>
-      <HighlightPost />
+      <HighlightPost
+        category="software"
+        date="12/12/2022"
+        imgSrc="https://picsum.photos/750/650"
+        text="Vivamus sit amet fermentum nunc, sed eleifend neque. Praesent porttitor viverra metus vel dapibus. 
+        Vestibulum consectetur enim quis ipsum tincidunt, at porta orci volutpat. Duis dapibus tellus consectetur 
+        imperdiet porta. Fusce sollicitudin ex dolor, vitae tristique enim consectetur a. Aenean imperdiet lobortis 
+        lobortis. Maecenas lacus lacus, rhoncus ut dolor eget, dictum iaculis enim.
+        Maecenas sodales ut orci in fermentum. "
+        title="Lorem Ipsum"
+      />
     </div>
   );
 }

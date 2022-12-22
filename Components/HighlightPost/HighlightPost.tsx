@@ -10,7 +10,7 @@ type Props = {
   date: string;
 };
 
-export const HighlightPost: React.FC = () => {
+export const HighlightPost: React.FC<Props> = ({ ...props }) => {
   return (
     <div style={{ display: "flex" }}>
       <Crd
@@ -36,14 +36,14 @@ export const HighlightPost: React.FC = () => {
             }}
           >
             {[
-              "Software",
-              "Software",
-              "Software",
-              "Software",
-              "Software",
-              "Software",
-              "Software",
-              "Software",
+              props.category,
+              props.category,
+              props.category,
+              props.category,
+              props.category,
+              props.category,
+              props.category,
+              props.category,
             ].map((val, i) => (
               <Crd css={{ padding: 0 }} key={i}>
                 <p
@@ -62,7 +62,7 @@ export const HighlightPost: React.FC = () => {
             ))}
           </div>
           <Card.Image
-            src="https://picsum.photos/750/650"
+            src={props.imgSrc}
             objectFit="cover"
             width="100%"
             height="100%"
@@ -80,19 +80,13 @@ export const HighlightPost: React.FC = () => {
         }}
       >
         <Card.Header css={{ paddingBottom: 0 }}>
-          <Title>Something That We Need In Difficult Times</Title>
+          <Title>{props.title}</Title>
         </Card.Header>
         <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
-          <Text>
-            Big cities are known for having huge traffic congestion. Therefore,
-            such situations are suitable for car accidents. That is why it is
-            very important that we know how to react in such a situations. In
-            addition to how important it is to protect ourselves healthfully
-            when car accidents...
-          </Text>
+          <Text>{props.text}</Text>
         </Card.Body>
         <Card.Footer css={{ display: "flex", justifyContent: "end" }}>
-          <Subtext>21/12/2022</Subtext>
+          <Subtext>{props.date}</Subtext>
         </Card.Footer>
       </Crd>
     </div>
