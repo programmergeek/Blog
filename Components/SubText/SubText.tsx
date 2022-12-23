@@ -1,9 +1,19 @@
 import React from "react";
+import { Text as NextUIText, TextProps } from "@nextui-org/react";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export const Subtext: React.FC<Props> = ({ ...props }) => {
-  return <h3> {props.children} </h3>;
+export const Subtext: React.FC<TextProps> = ({ css, ...props }) => {
+  return (
+    <NextUIText
+      css={{
+        fontSize: 20,
+        fontFamily: "Teko",
+        letterSpacing: ".005rem",
+        fontWeight: 500,
+        ...css,
+      }}
+      {...props}
+    >
+      {props.children}
+    </NextUIText>
+  );
 };
