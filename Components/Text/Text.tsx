@@ -1,9 +1,20 @@
 import React from "react";
+import { Text as NextUIText, TextProps } from "@nextui-org/react";
 
-interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
-  children: React.ReactNode;
-}
-
-export const Text: React.FC<Props> = ({ ...props }) => {
-  return <p {...props}>{props.children}</p>;
+export const Text: React.FC<TextProps> = ({ css, ...props }) => {
+  return (
+    <NextUIText
+      css={{
+        fontFamily: "Lato",
+        fontSize: 16,
+        "@md": {
+          fontSize: 20,
+        },
+        ...css,
+      }}
+      {...props}
+    >
+      {props.children}
+    </NextUIText>
+  );
 };
