@@ -1,11 +1,7 @@
 import React from "react";
-import { Text } from "@nextui-org/react";
+import { Text, TextProps } from "@nextui-org/react";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export const Title: React.FC<Props> = ({ ...props }) => {
+export const Title: React.FC<TextProps> = ({ css, ...props }) => {
   return (
     <Text
       h1
@@ -14,7 +10,9 @@ export const Title: React.FC<Props> = ({ ...props }) => {
         fontWeight: 400,
         fontSize: 32,
         letterSpacing: ".005em",
+        ...css,
       }}
+      {...props}
     >
       {props.children}
     </Text>
