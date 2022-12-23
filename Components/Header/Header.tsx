@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "@nextui-org/react";
 
 type Props = {
   children: React.ReactNode;
@@ -12,16 +13,23 @@ export const Header: React.FC<Props> = ({ ...props }) => {
         width: "fit-content",
       }}
     >
-      <h1 style={{ fontSize: "80px", zIndex: 10, position: "relative" }}>
+      <Text
+        css={{
+          fontSize: "50px",
+          zIndex: 10,
+          position: "relative",
+          fontFamily: "Teko",
+        }}
+      >
         {props.children}
-      </h1>
+      </Text>
       <div
         style={{
-          width: "200px",
-          height: 5,
+          width: "100px",
+          height: 4,
           backgroundColor: "rgb(142, 53, 8)",
           position: "absolute",
-          top: 57,
+          top: 40,
           left: "80%",
           zIndex: 0,
         }}
