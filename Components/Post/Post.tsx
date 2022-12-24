@@ -1,4 +1,4 @@
-import { Card } from "@nextui-org/react";
+import { Card, Col } from "@nextui-org/react";
 import React from "react";
 import { Crd, Text, Subtext, Title } from "..";
 
@@ -7,19 +7,69 @@ export const Post: React.FC = () => {
     <div style={{ display: "flex" }}>
       <Crd
         css={{
-          width: 450,
+          maxWidth: 400,
           height: 500,
           padding: 0,
           position: "relative",
+          "@md": {
+            maxWidth: 450,
+          },
         }}
       >
+        <Card
+          css={{
+            position: "absolute",
+            w: "100%",
+            h: "100%",
+            zIndex: 20,
+            borderRadius: 0,
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0, 0,0, 1))",
+            "@md": {
+              display: "none",
+            },
+          }}
+        >
+          {""}
+        </Card>
+        <Card
+          css={{
+            position: "absolute",
+            w: "80%",
+            h: "100%",
+            zIndex: 20,
+            borderRadius: 0,
+            background: "transparent",
+            paddingTop: 100,
+            "@md": {
+              display: "none",
+            },
+          }}
+        >
+          <Card.Header css={{ paddingBottom: 0 }}>
+            <Title css={{ color: "White" }}>Title</Title>
+          </Card.Header>
+          <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
+            <Text
+              css={{ fontSize: 16, "@md": { fontSize: 16 }, color: "White" }}
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptates molestiae veritatis pariatur. Aut commodi laborum ex
+              unde molestias necessitatibus explicabo aliquid velit. Itaque quae
+              porro expedita eligendi hic facilis nihil.
+            </Text>
+          </Card.Body>
+          <Card.Footer css={{ display: "flex", justifyContent: "end" }}>
+            <Subtext css={{ color: "White" }}>22/12/2022</Subtext>
+          </Card.Footer>
+        </Card>
         <Card.Body css={{ p: 0 }}>
           <div
             style={{
               height: "fit-content",
               width: "fit-content",
               position: "absolute",
-              zIndex: 10,
+              zIndex: 30,
               right: 25,
               bottom: "5%",
               display: "flex",
@@ -64,18 +114,23 @@ export const Post: React.FC = () => {
       </Crd>
       <Crd
         css={{
-          width: 450,
+          maxWidth: 400,
           height: 500,
-          paddingLeft: 50,
-          paddingRight: 50,
-          paddingTop: 100,
+          paddingTop: 50,
+          paddingLeft: 20,
+          paddingRight: 20,
+          display: "none",
+          "@md": {
+            display: "block",
+            maxWidth: 450,
+          },
         }}
       >
         <Card.Header css={{ paddingBottom: 0 }}>
           <Title>Title</Title>
         </Card.Header>
         <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
-          <Text>
+          <Text css={{ fontSize: 16, "@md": { fontSize: 16 } }}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
             molestiae veritatis pariatur. Aut commodi laborum ex unde molestias
             necessitatibus explicabo aliquid velit. Itaque quae porro expedita
