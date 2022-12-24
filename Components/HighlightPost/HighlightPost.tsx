@@ -8,12 +8,13 @@ type Props = {
   title: string;
   text: string;
   date: string;
+  link: string;
 };
 
 export const HighlightPost: React.FC<Props> = ({ ...props }) => {
   return (
     <div style={{ display: "flex" }}>
-      <Link href="https://google.com">
+      <Link href={props.link}>
         <Crd
           css={{
             height: 500,
@@ -55,20 +56,17 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
             }}
           >
             <Card.Header css={{ paddingBottom: 0 }}>
-              <Title css={{ color: "White" }}>Title</Title>
+              <Title css={{ color: "White" }}> {props.title} </Title>
             </Card.Header>
             <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
               <Text
                 css={{ fontSize: 16, "@md": { fontSize: 16 }, color: "White" }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptates molestiae veritatis pariatur. Aut commodi laborum ex
-                unde molestias necessitatibus explicabo aliquid velit. Itaque
-                quae porro expedita eligendi hic facilis nihil.
+                {props.text}
               </Text>
             </Card.Body>
             <Card.Footer css={{ display: "flex", justifyContent: "end" }}>
-              <Subtext css={{ color: "White" }}>22/12/2022</Subtext>
+              <Subtext css={{ color: "White" }}> {props.date} </Subtext>
             </Card.Footer>
           </Card>
           <Card.Body css={{ p: 0 }}>
@@ -86,14 +84,14 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
               }}
             >
               {[
-                "Software",
-                "Software",
-                "Software",
-                "Software",
-                "Software",
-                "Software",
-                "Software",
-                "Software",
+                props.category,
+                props.category,
+                props.category,
+                props.category,
+                props.category,
+                props.category,
+                props.category,
+                props.category,
               ].map((val, i) => (
                 <Crd css={{ padding: 0 }} key={i}>
                   <p
@@ -112,7 +110,7 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
               ))}
             </div>
             <Card.Image
-              src="/images/gunsligner.jpg"
+              src={props.imgSrc}
               objectFit="cover"
               width="100%"
               height="100%"
@@ -135,17 +133,13 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
         }}
       >
         <Card.Header css={{ paddingBottom: 0 }}>
-          <Link href="https://google.com">
-            <Title>Something That We Need In Difficult Times</Title>
+          <Link href={props.link}>
+            <Title>{props.title}</Title>
           </Link>
         </Card.Header>
         <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
           <Text css={{ fontSize: 16, "@md": { fontSize: 18 } }}>
-            Big cities are known for having huge traffic congestions. Therefore,
-            such are suitable for car accidents. That is why it is very
-            important that we know how to react in such situations. In addition
-            to how important it is protect ourselves healthfully when car
-            accidents...
+            {props.text}
           </Text>
         </Card.Body>
         <Card.Footer
@@ -157,7 +151,7 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
             right: 20,
           }}
         >
-          <Subtext>22/12/2022</Subtext>
+          <Subtext>{props.date}</Subtext>
         </Card.Footer>
       </Crd>
     </div>

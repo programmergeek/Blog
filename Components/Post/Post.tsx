@@ -2,10 +2,19 @@ import { Card, Link } from "@nextui-org/react";
 import React from "react";
 import { Crd, Text, Subtext, Title } from "..";
 
-export const Post: React.FC = () => {
+type Props = {
+  category: string;
+  imgSrc: string;
+  title: string;
+  text: string;
+  date: string;
+  link: string;
+};
+
+export const Post: React.FC<Props> = ({ ...props }) => {
   return (
     <div style={{ display: "flex" }}>
-      <Link href="https://google.com">
+      <Link href={props.link}>
         <Crd
           css={{
             maxWidth: 400,
@@ -48,20 +57,17 @@ export const Post: React.FC = () => {
             }}
           >
             <Card.Header css={{ paddingBottom: 0 }}>
-              <Title css={{ color: "White" }}>Title</Title>
+              <Title css={{ color: "White" }}> {props.title} </Title>
             </Card.Header>
             <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
               <Text
                 css={{ fontSize: 16, "@md": { fontSize: 16 }, color: "White" }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptates molestiae veritatis pariatur. Aut commodi laborum ex
-                unde molestias necessitatibus explicabo aliquid velit. Itaque
-                quae porro expedita eligendi hic facilis nihil.
+                {props.text}
               </Text>
             </Card.Body>
             <Card.Footer css={{ display: "flex", justifyContent: "end" }}>
-              <Subtext css={{ color: "White" }}>22/12/2022</Subtext>
+              <Subtext css={{ color: "White" }}> {props.date} </Subtext>
             </Card.Footer>
           </Card>
           <Card.Body css={{ p: 0 }}>
@@ -79,14 +85,14 @@ export const Post: React.FC = () => {
               }}
             >
               {[
-                "Software",
-                "Software",
-                "Software",
-                "Software",
-                "Software",
-                "Software",
-                "Software",
-                "Software",
+                props.category,
+                props.category,
+                props.category,
+                props.category,
+                props.category,
+                props.category,
+                props.category,
+                props.category,
               ].map((val, i) => (
                 <Crd css={{ padding: 0 }} key={i}>
                   <p
@@ -105,7 +111,7 @@ export const Post: React.FC = () => {
               ))}
             </div>
             <Card.Image
-              src="/images/gunsligner.jpg"
+              src={props.imgSrc}
               objectFit="cover"
               width="100%"
               height="100%"
@@ -129,16 +135,13 @@ export const Post: React.FC = () => {
         }}
       >
         <Card.Header css={{ paddingBottom: 0 }}>
-          <Link href="https://google.com">
-            <Title>Title</Title>
+          <Link href={props.link}>
+            <Title> {props.title} </Title>
           </Link>
         </Card.Header>
         <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
           <Text css={{ fontSize: 16, "@md": { fontSize: 16 } }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            molestiae veritatis pariatur. Aut commodi laborum ex unde molestias
-            necessitatibus explicabo aliquid velit. Itaque quae porro expedita
-            eligendi hic facilis nihil.
+            {props.text}
           </Text>
         </Card.Body>
         <Card.Footer
@@ -150,7 +153,7 @@ export const Post: React.FC = () => {
             right: 20,
           }}
         >
-          <Subtext>22/12/2022</Subtext>
+          <Subtext> {props.date} </Subtext>
         </Card.Footer>
       </Crd>
     </div>
