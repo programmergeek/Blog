@@ -8,30 +8,51 @@ import { Col, Container, Row } from "@nextui-org/react";
 export default function Home() {
   return (
     <div>
-      <HighlightPost
-        link="https://google.com"
-        category="software"
-        date="12/12/2022"
-        imgSrc="https://picsum.photos/750/650"
-        text="Vivamus sit amet fermentum nunc, sed eleifend neque. Praesent porttitor viverra metus vel dapibus. 
-        Vestibulum consectetur enim quis ipsum tincidunt, at porta orci volutpat. Duis dapibus tellus consectetur 
-        imperdiet porta. Fusce sollicitudin ex dolor, vitae tristique enim consectetur a. Aenean imperdiet lobortis 
-        lobortis. Maecenas lacus lacus, rhoncus ut dolor eget, dictum iaculis enim.
-        Maecenas sodales ut orci in fermentum. "
-        title="Lorem Ipsum"
-      />
-      <Post
-        category="Design"
-        imgSrc="https://picsum.photos/800"
-        date="14/12/2022"
-        text="Vivamus sit amet fermentum nunc, sed eleifend neque. Praesent porttitor viverra metus vel dapibus. 
-       Vestibulum consectetur enim quis ipsum tincidunt, at porta orci volutpat. Duis dapibus tellus consectetur 
-       imperdiet porta. Fusce sollicitudin ex dolor, vitae tristique enim consectetur a. Aenean imperdiet lobortis 
-       lobortis. Maecenas lacus lacus, rhoncus ut dolor eget, dictum iaculis enim.
-       Maecenas sodales ut orci in fermentum."
-        title="Title"
-        link="https://google.com"
-      />
+      <div
+        style={{
+          paddingLeft: 100,
+          paddingRight: 100,
+        }}
+      >
+        <div
+          style={{
+            height: 200,
+            width: "100%",
+            backgroundColor: "green",
+          }}
+        ></div>
+        <nav
+          style={{
+            height: 100,
+            width: "100%",
+            backgroundColor: "red",
+          }}
+        ></nav>
+        <main
+          style={{
+            backgroundColor: "brown",
+            height: "100vh",
+            width: "100%",
+          }}
+        >
+          <HighlightPost
+            category="Design"
+            date="23/12/2022"
+            imgSrc="/images/gunsligner.jpg"
+            link="/design"
+            text="Big cities are known for having huge traffic congestion. Therefore, such situations are suitable for car accidents. That is why it is very important that we know how to react in such situations. In addition to how important it is to protect ourselves from healthfully when car accidents..."
+            title="Something That We Need In Difficult Times"
+          />
+          <div></div>
+        </main>
+      </div>
+      <footer
+        style={{
+          height: 300,
+          width: "100%",
+          backgroundColor: "blue",
+        }}
+      ></footer>
     </div>
   );
 }
