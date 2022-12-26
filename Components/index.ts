@@ -6,3 +6,4 @@ export * from "./Button/Button";
 export * from "./Cards/Card";
 export * from "./HighlightPost/HighlightPost";
 export * from "./Post/Post";
+export * from "./SiteTitle";

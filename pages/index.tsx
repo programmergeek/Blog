@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { Header, HighlightPost, Post, Btn } from "../Components";
+import { Header, HighlightPost, Post, Btn, SiteTitle } from "../Components";
 import { Col, Container, Row } from "@nextui-org/react";
 
 export default function Home() {
@@ -18,15 +18,15 @@ export default function Home() {
           style={{
             height: 200,
             width: "100%",
-            backgroundColor: "green",
           }}
-        ></div>
+        >
+          <SiteTitle />
+        </div>
         <nav
           style={{
             paddingTop: 25,
             paddingBottom: 25,
             width: "100%",
-            backgroundColor: "red",
             display: "flex",
             gap: 10,
           }}
@@ -37,7 +37,6 @@ export default function Home() {
         </nav>
         <main
           style={{
-            backgroundColor: "brown",
             width: "100%",
           }}
         >
@@ -85,7 +84,6 @@ export default function Home() {
         style={{
           height: 300,
           width: "100%",
-          backgroundColor: "blue",
         }}
       ></footer>
     </div>
