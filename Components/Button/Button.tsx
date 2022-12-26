@@ -18,6 +18,7 @@ const CustomBtn = styled(Button, {
         height: "fit-content",
         minWidth: 50,
         fontSize: 25,
+        paddingLeft: 0,
       },
     },
     color: {
