@@ -276,3 +276,26 @@
     transform: rotate(0deg);
   }
 }
+
+.content-layout{
+  padding: 0;
+}
+
+.latest{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (min-width: 580px) {
+  .content-layout{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (min-width: 740px) {
+  .latest{
+    flex-direction: row;
+  }
+}

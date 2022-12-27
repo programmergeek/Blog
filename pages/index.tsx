@@ -8,12 +8,7 @@ import { Col, Container, Row } from "@nextui-org/react";
 export default function Home() {
   return (
     <div>
-      <div
-        style={{
-          paddingLeft: 100,
-          paddingRight: 100,
-        }}
-      >
+      <div className={styles["content-layout"]}>
         <div
           style={{
             height: 200,
@@ -51,7 +46,7 @@ export default function Home() {
           <div style={{ paddingTop: 50, paddingBottom: 50 }}>
             <Header>Latest</Header>
           </div>
-          <div style={{ display: "flex", gap: 20 }}>
+          <div className={styles.latest}>
             <Row>
               <Col>
                 <Post
