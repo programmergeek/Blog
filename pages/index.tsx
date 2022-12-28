@@ -47,30 +47,30 @@ export default function Home() {
             <Header>Latest</Header>
           </div>
           <div className={styles.latest}>
-            <Row>
-              <Col>
-                <Post
-                  category="Web Dev"
-                  date="12/04/2022"
-                  imgSrc="/images/gunsligner.jpg"
-                  link="https://google.com"
-                  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas obcaecati voluptas accusantium voluptatibus, iste quasi est alias omnis ratione a natus unde et maxime sint, minus labore atque nulla dolor."
-                  title="Title"
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Post
-                  category="Web Dev"
-                  date="12/04/2022"
-                  imgSrc="/images/gunsligner.jpg"
-                  link="https://google.com"
-                  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas obcaecati voluptas accusantium voluptatibus, iste quasi est alias omnis ratione a natus unde et maxime sint, minus labore atque nulla dolor."
-                  title="Title"
-                />
-              </Col>
-            </Row>
+            <Post
+              category="Web Dev"
+              date="12/04/2022"
+              imgSrc="/images/gunsligner.jpg"
+              link="https://google.com"
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas obcaecati voluptas accusantium voluptatibus, iste quasi est alias omnis ratione a natus unde et maxime sint, minus labore atque nulla dolor."
+              title="Title"
+            />
+            <Post
+              category="Web Dev"
+              date="12/04/2022"
+              imgSrc="/images/gunsligner.jpg"
+              link="https://google.com"
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas obcaecati voluptas accusantium voluptatibus, iste quasi est alias omnis ratione a natus unde et maxime sint, minus labore atque nulla dolor."
+              title="Title"
+            />
+            <Post
+              category="Web Dev"
+              date="12/04/2022"
+              imgSrc="/images/gunsligner.jpg"
+              link="https://google.com"
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas obcaecati voluptas accusantium voluptatibus, iste quasi est alias omnis ratione a natus unde et maxime sint, minus labore atque nulla dolor."
+              title="Title"
+            />
           </div>
           <div></div>
         </main>
