@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import { Header, HighlightPost, Post, Btn, SiteTitle } from "../Components";
-import { Col, Container, Row } from "@nextui-org/react";
+import { Col, Container, Pagination, Row } from "@nextui-org/react";
 
 export default function Home() {
   return (
@@ -72,7 +72,16 @@ export default function Home() {
               title="Title"
             />
           </div>
-          <div></div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              paddingTop: 50,
+              paddingBottom: 10,
+            }}
+          >
+            <Pagination total={10} initialPage={1} />
+          </div>
         </main>
       </div>
       <footer
