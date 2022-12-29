@@ -23,6 +23,10 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
             "@md": {
               maxWidth: 600,
             },
+            "@lg": {
+              maxWidth: 750,
+              height: 620,
+            },
           }}
         >
           <Card
@@ -55,10 +59,12 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
               },
             }}
           >
-            <Card.Header css={{ paddingBottom: 0 }}>
+            <Card.Header css={{ paddingBottom: 0, paddingLeft: 25 }}>
               <Title css={{ color: "White" }}> {props.title} </Title>
             </Card.Header>
-            <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
+            <Card.Body
+              css={{ paddingTop: 0, wordSpacing: ".22em", paddingLeft: 25 }}
+            >
               <Text
                 css={{ fontSize: 16, "@md": { fontSize: 16 }, color: "White" }}
               >
@@ -84,6 +90,7 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
               }}
             >
               {[
+                props.category,
                 props.category,
                 props.category,
                 props.category,
@@ -129,6 +136,11 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
           "@md": {
             display: "block",
             maxWidth: 600,
+          },
+          "@lg": {
+            maxWidth: 750,
+            minWidth: "50%",
+            height: 620,
           },
         }}
       >

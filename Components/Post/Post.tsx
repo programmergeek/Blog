@@ -17,7 +17,7 @@ export const Post: React.FC<Props> = ({ ...props }) => {
       <Link href={props.link}>
         <Crd
           css={{
-            maxWidth: 400,
+            maxWidth: "100%",
             height: 500,
             padding: 0,
             position: "relative",
@@ -56,17 +56,21 @@ export const Post: React.FC<Props> = ({ ...props }) => {
               },
             }}
           >
-            <Card.Header css={{ paddingBottom: 0 }}>
+            <Card.Header css={{ paddingBottom: 0, paddingLeft: 25 }}>
               <Title css={{ color: "White" }}> {props.title} </Title>
             </Card.Header>
-            <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
+            <Card.Body
+              css={{ paddingTop: 0, wordSpacing: ".22em", paddingLeft: 25 }}
+            >
               <Text
                 css={{ fontSize: 16, "@md": { fontSize: 16 }, color: "White" }}
               >
                 {props.text}
               </Text>
             </Card.Body>
-            <Card.Footer css={{ display: "flex", justifyContent: "end" }}>
+            <Card.Footer
+              css={{ display: "flex", justifyContent: "end", marginBottom: 2 }}
+            >
               <Subtext css={{ color: "White" }}> {props.date} </Subtext>
             </Card.Footer>
           </Card>
@@ -130,7 +134,7 @@ export const Post: React.FC<Props> = ({ ...props }) => {
           display: "none",
           "@md": {
             display: "block",
-            maxWidth: 450,
+            maxWidth: "50%",
           },
         }}
       >
