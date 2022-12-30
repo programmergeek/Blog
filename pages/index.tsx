@@ -2,7 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { Header, HighlightPost, Post, Btn, SiteTitle } from "../Components";
+import {
+  Header,
+  HighlightPost,
+  Post,
+  Btn,
+  SiteTitle,
+  LatestPosts,
+} from "../Components";
 import { Col, Container, Pagination, Row } from "@nextui-org/react";
 
 export default function Home() {
@@ -43,53 +50,15 @@ export default function Home() {
             text="Big cities are known for having huge traffic congestion. Therefore, such situations are suitable for car accidents. That is why it is very important that we know how to react in such situations. In addition to how important it is to protect ourselves from healthfully when car accidents..."
             title="Something That We Need In Difficult Times"
           />
-          <div style={{ paddingTop: 50, paddingBottom: 50 }}>
-            <Header>Latest</Header>
-          </div>
-          <div className={styles.latest}>
-            <Post
-              category="Web Dev"
-              date="12/04/2022"
-              imgSrc="/images/gunsligner.jpg"
-              link="https://google.com"
-              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas obcaecati voluptas accusantium voluptatibus, iste quasi est alias omnis ratione a natus unde et maxime sint, minus labore atque nulla dolor."
-              title="Title"
-            />
-            <Post
-              category="Web Dev"
-              date="12/04/2022"
-              imgSrc="/images/gunsligner.jpg"
-              link="https://google.com"
-              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas obcaecati voluptas accusantium voluptatibus, iste quasi est alias omnis ratione a natus unde et maxime sint, minus labore atque nulla dolor."
-              title="Title"
-            />
-            <Post
-              category="Web Dev"
-              date="12/04/2022"
-              imgSrc="/images/gunsligner.jpg"
-              link="https://google.com"
-              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas obcaecati voluptas accusantium voluptatibus, iste quasi est alias omnis ratione a natus unde et maxime sint, minus labore atque nulla dolor."
-              title="Title"
-            />
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              paddingTop: 50,
-              paddingBottom: 10,
-            }}
-          >
-            <Pagination total={10} initialPage={1} />
-          </div>
+          <LatestPosts />
         </main>
+        <footer
+          style={{
+            height: 300,
+            width: "100%",
+          }}
+        ></footer>
       </div>
-      <footer
-        style={{
-          height: 300,
-          width: "100%",
-        }}
-      ></footer>
     </div>
   );
 }
