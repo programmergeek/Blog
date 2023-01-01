@@ -21,6 +21,7 @@ export const getAllPostsForHome = async () => {
   await client
     .getEntries({
       content_type: "post",
+      limit: 8,
     })
     .then((entries) => {
       posts = extractPosts(entries);
