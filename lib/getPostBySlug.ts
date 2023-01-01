@@ -9,7 +9,7 @@ export const getPostBySlug = async (slug: string) => {
       "fields.slug": slug,
     })
     .then((entry) => {
-      data = extractPost(entry);
+      data = extractPost(entry.items[0]);
     })
     .catch(console.error);
   return data;
