@@ -1,4 +1,5 @@
 import { client } from "../Contentful/setup";
+import { extractPost } from "./extractPost";
 
 export const getPostBySlug = async (slug: string) => {
   let data;
@@ -8,7 +9,7 @@ export const getPostBySlug = async (slug: string) => {
       "fields.slug": slug,
     })
     .then((entry) => {
-      data = entry.items[0];
+      data = extractPost(entry);
     })
     .catch(console.error);
   return data;
