@@ -7,6 +7,7 @@ export const LatestPosts: React.FC = () => {
   const [posts, setPosts] = useState<any>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     setLoading(true);
@@ -16,6 +17,7 @@ export const LatestPosts: React.FC = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setTotal(data.pop().total);
         setPosts(data);
         console.log(data);
         setLoading(false);
@@ -43,7 +45,7 @@ export const LatestPosts: React.FC = () => {
         }}
       >
         <Pagination
-          total={3}
+          total={Math.ceil(total / 8)}
           initialPage={1}
           onChange={(page) => setCurrentPage(page)}
         />

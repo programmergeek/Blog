@@ -14,6 +14,7 @@ export const getAllPosts = async (limit = 8, skip = 0) => {
     })
     .then((entreies) => {
       posts = extractPosts(entreies);
+      posts = [...posts, { total: entreies.total }];
     });
 
   return posts;
