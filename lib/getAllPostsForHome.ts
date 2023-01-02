@@ -27,5 +27,5 @@ export const getAllPostsForHome = async () => {
       posts = extractPosts(entries);
     });
 
-  return [highlightedPost, posts];
+  return { highlightedPost, posts };
 };
