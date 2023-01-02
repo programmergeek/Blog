@@ -97,6 +97,7 @@ export const Post: React.FC<Props> = ({ ...props }) => {
                 props.category,
                 props.category,
                 props.category,
+                props.category,
               ].map((val, i) => (
                 <Crd css={{ padding: 0 }} key={i}>
                   <p
@@ -140,7 +141,9 @@ export const Post: React.FC<Props> = ({ ...props }) => {
       >
         <Card.Header css={{ paddingBottom: 0 }}>
           <Link href={props.link}>
-            <Title> {props.title} </Title>
+            <Title css={{ "@lg": { fontSize: "3.5rem", lineHeight: "4rem" } }}>
+              {props.title}
+            </Title>
           </Link>
         </Card.Header>
         <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
