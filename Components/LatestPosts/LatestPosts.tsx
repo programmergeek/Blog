@@ -7,14 +7,17 @@ export const LatestPosts: React.FC = () => {
   const [posts, setPosts] = useState<any>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 10;
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/hello")
+    fetch("/api/latest", {
+      method: "POST",
+      body: JSON.stringify((currentPage - 1) * 8),
+    })
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
+        console.log(data);
         setLoading(false);
       });
   }, [currentPage]);
@@ -39,7 +42,11 @@ export const LatestPosts: React.FC = () => {
           paddingBottom: 10,
         }}
       >
-        <Pagination total={10} initialPage={1} />
+        <Pagination
+          total={3}
+          initialPage={1}
+          onChange={(page) => setCurrentPage(page)}
+        />
       </div>
     </div>
   );

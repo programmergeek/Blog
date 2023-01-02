@@ -11,7 +11,7 @@ export const PostGrid: React.FC<Props> = ({ ...props }) => {
 
   return (
     <div className={styles.posts}>
-      {props.posts.posts.map((post: any) => (
+      {props.posts.map((post: any) => (
         <Post
           category={post.category.category}
           title={post.title}
