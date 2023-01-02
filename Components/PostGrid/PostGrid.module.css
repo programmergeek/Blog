@@ -1,0 +1,13 @@
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (min-width: 740px) {
+  .posts {
+    display: grid;
+    grid-template-columns: 50% auto;
+    gap: 20px;
+  }
+}

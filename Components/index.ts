@@ -8,3 +8,4 @@ export * from "./HighlightPost/HighlightPost";
 export * from "./Post/Post";
 export * from "./SiteTitle";
 export * from "./LatestPosts/LatestPosts";
+export * from "./PostGrid/PostGrid";
