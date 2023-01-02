@@ -7,7 +7,7 @@ export const extractPost = (entry: Entry<unknown>) => {
   // extract the data we need from the fields propery of the response
   const post = {
     title: fields.title,
-    date: fields.date,
+    date: new Date(fields.date).toLocaleDateString("en-GB"),
     thumbnail: {
       url: fields.thumbnail.fields.file.url,
       title: fields.thumbnail.fields.title,
