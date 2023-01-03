@@ -9,3 +9,4 @@ export * from "./Post/Post";
 export * from "./SiteTitle";
 export * from "./LatestPosts/LatestPosts";
 export * from "./PostGrid/PostGrid";
+export * from "./Navbar/Navbar";

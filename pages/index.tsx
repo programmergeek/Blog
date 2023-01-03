@@ -9,6 +9,7 @@ import {
   Btn,
   SiteTitle,
   LatestPosts,
+  Navbar,
 } from "../Components";
 import { Col, Container, Pagination, Row } from "@nextui-org/react";
 
@@ -24,19 +25,7 @@ export default function Home() {
         >
           <SiteTitle />
         </div>
-        <nav
-          style={{
-            paddingTop: 25,
-            paddingBottom: 25,
-            width: "100%",
-            display: "flex",
-            gap: 10,
-          }}
-        >
-          <Btn size="lg">#Web Dev</Btn>
-          <Btn size="lg">#Design</Btn>
-          <Btn size="lg">#just me</Btn>
-        </nav>
+        <Navbar />
         <main
           style={{
             width: "100%",
