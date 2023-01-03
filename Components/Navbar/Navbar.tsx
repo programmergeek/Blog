@@ -6,8 +6,23 @@ import {
   NavbarProps,
 } from "@nextui-org/react";
 import { Btn } from "../Button/Button";
+import { useForm } from "react-hook-form";
+import { SubmitHandler } from "react-hook-form/dist/types";
+import { useRouter } from "next/router";
+
+type Search = {
+  search: string;
+};
 
 export const Navbar: React.FC<NavbarProps> = ({ css, ...props }) => {
+  const { register, handleSubmit } = useForm<Search>();
+  const router = useRouter();
+  const onSubmit: SubmitHandler<Search> = (data) => {
+    router.push({
+      pathname: "/search",
+      query: { search: data.search },
+    });
+  };
   const collapseItems = [
     {
       label: "#Web Dev",
@@ -40,14 +55,17 @@ export const Navbar: React.FC<NavbarProps> = ({ css, ...props }) => {
       </NextUINav.Content>
       <NextUINav.Content>
         <NextUINav.Item>
-          <Input
-            css={{ fontFamily: "Teko", fontSize: 25 }}
-            underlined
-            clearable
-            placeholder="Search"
-            color="primary"
-            size="xl"
-          />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Input
+              css={{ fontFamily: "Teko", fontSize: 25 }}
+              underlined
+              clearable
+              placeholder="Search"
+              color="primary"
+              size="xl"
+              {...register("search")}
+            />
+          </form>
         </NextUINav.Item>
       </NextUINav.Content>
       <NextUINav.Collapse css={{ display: "grid", placeItems: "center" }}>
