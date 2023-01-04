@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ css, ...props }) => {
   const router = useRouter();
   const onSubmit: SubmitHandler<Search> = (data) => {
     router.push({
-      pathname: "/search",
+      pathname: "/search/1",
       query: { search: data.search },
     });
   };
