@@ -12,7 +12,7 @@ export default function Search({
   const router = useRouter();
   const { page, search } = router.query;
   const [totalPosts, updateTotalPosts] = useState(total);
-  const [results, updateResults] = useState<any>(data);
+  const [posts, updatePosts] = useState<any>(data);
   const [currentPage, updateCurrentPage] = useState(page);
 
   // route user to the next page
@@ -25,12 +25,12 @@ export default function Search({
 
   useEffect(() => {
     // update result data everytime we go to another page
-    updateResults(data);
+    updatePosts(data);
   }, [router.query.page]);
 
   return (
     <div>
-      <PostGrid posts={results} key={router.asPath} />
+      <PostGrid posts={posts} key={router.asPath} />
       <Pagination
         total={Math.ceil(totalPosts / 8)}
         initialPage={parseInt(currentPage as string)}
