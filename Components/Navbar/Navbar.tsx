@@ -43,7 +43,12 @@ export const Navbar: React.FC<NavbarProps> = ({ css, ...props }) => {
       css={{ boxShadow: "none", ...css }}
       variant="sticky"
       {...props}
-      containerCss={{ "@md": { padding: 0 } }}
+      containerCss={{
+        "@md": { paddingRight: 50, paddingLeft: 50 },
+        "@lg": { paddingRight: 100, paddingLeft: 100 },
+        "@xl": { paddingRight: 250, paddingLeft: 250 },
+        minWidth: "100vw",
+      }}
     >
       <NextUINav.Toggle showIn="xs" aria-label="toggle navigation" />
       <NextUINav.Content hideIn="xs">
