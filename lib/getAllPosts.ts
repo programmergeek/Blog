@@ -4,7 +4,7 @@ import { extractPosts } from "./extractPosts";
 /**
  * A function that returns all posts
  */
-export const getAllPosts = async (limit = 8, skip = 0, query?: string) => {
+export const getAllPosts: any = async (limit = 8, skip = 0, query?: string) => {
   let posts;
   await client
     .getEntries({
