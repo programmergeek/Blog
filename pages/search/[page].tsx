@@ -2,8 +2,9 @@ import { Pagination } from "@nextui-org/react";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { PostGrid } from "../../Components";
+import { Navbar, PostGrid, SiteTitle } from "../../Components";
 import { getAllPosts } from "../../lib/getAllPosts";
+import styles from "../../styles/Home.module.css";
 
 export default function Search({
   data,
@@ -26,16 +27,24 @@ export default function Search({
   useEffect(() => {
     // update result data everytime we go to another page
     updatePosts(data);
-  }, [router.query.page]);
+  }, [router.query.page, router.query.search]);
 
   return (
     <div>
-      <PostGrid posts={posts} key={router.asPath} />
-      <Pagination
-        total={Math.ceil(totalPosts / 8)}
-        initialPage={parseInt(currentPage as string)}
-        onChange={(pageNum) => handleChange(pageNum)}
-      />
+      <div className={styles["content-layout"]}>
+        <SiteTitle />
+      </div>
+      <Navbar />
+      <div className={styles["content-layout"]}>
+        <PostGrid posts={posts} key={router.asPath} />
+      </div>
+      <div style={{ display: "grid", placeContent: "center", paddingTop: 50 }}>
+        <Pagination
+          total={Math.ceil(totalPosts / 8)}
+          initialPage={parseInt(currentPage as string)}
+          onChange={(pageNum) => handleChange(pageNum)}
+        />
+      </div>
     </div>
   );
 }
