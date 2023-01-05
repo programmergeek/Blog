@@ -14,8 +14,7 @@ export default function Search({
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const page = parseInt(context.params?.page as string);
-  const search = context.params?.search as string;
+  const { page, search } = context.query as any;
   const data = await getAllPosts(undefined, (page - 1) * 8, search as string);
   return {
     props: {
