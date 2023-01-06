@@ -18,11 +18,11 @@ export const Footer: React.FC = () => {
     <footer
       style={{
         backgroundColor: "rgb(142, 53, 8)",
-        height: 300,
+        height: 400,
         width: "100vw",
         marginTop: 200,
-        paddingTop: 50,
-        paddingBottom: 50,
+        paddingTop: 100,
+        paddingBottom: 100,
       }}
       className={styles["content-layout"]}
     >
@@ -138,6 +138,21 @@ export const Footer: React.FC = () => {
           </Tooltip>
         </div>
       </div>
+      <Subtext
+        color="#fff"
+        css={{ wordSpacing: ".1rem", marginTop: 20, letterSpacing: ".05rem" }}
+      >
+        Design inspired by{" "}
+        <Link
+          style={{ color: "white", textDecoration: "underline" }}
+          href="https://www.behance.net/gallery/158941401/Retro-Blog-UI-UX-Design?tracking_source=search_projects%7Cblog+web+design"
+          target="_blank"
+          rel="norefferer"
+        >
+          Tiruhi Ivanyan
+        </Link>{" "}
+        and built by a local internet nerd.
+      </Subtext>
     </footer>
   );
 };
