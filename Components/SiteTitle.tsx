@@ -1,3 +1,4 @@
+import { Link } from "@nextui-org/react";
 import React from "react";
 
 export const SiteTitle: React.FC = () => {
@@ -8,17 +9,18 @@ export const SiteTitle: React.FC = () => {
         position: "relative",
       }}
     >
-      <p
-        style={{
-          fontFamily: "Teko",
-          fontSize: 120,
-          letterSpacing: ".005rem",
-          position: "relative",
-          zIndex: 10,
-        }}
-      >
-        Blog
-      </p>
+      <Link href="/" color="inherit" css={{ position: "relative", zIndex: 10 }}>
+        <p
+          style={{
+            fontFamily: "Teko",
+            fontSize: 120,
+            letterSpacing: ".005rem",
+            zIndex: 10,
+          }}
+        >
+          Blog
+        </p>
+      </Link>
       <div
         style={{
           height: 10,
