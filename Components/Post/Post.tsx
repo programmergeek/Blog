@@ -1,4 +1,5 @@
-import { Card, Link } from "@nextui-org/react";
+import { Card } from "@nextui-org/react";
+import Link from "next/link";
 import React from "react";
 import { Crd, Text, Subtext, Title } from "..";
 
@@ -14,7 +15,12 @@ type Props = {
 export const Post: React.FC<Props> = ({ ...props }) => {
   return (
     <div style={{ display: "flex" }}>
-      <Link href={props.link}>
+      <Link
+        href={{
+          pathname: "/post/[slug]",
+          query: { slug: props.link },
+        }}
+      >
         <Crd
           css={{
             maxWidth: "100%",
@@ -140,7 +146,12 @@ export const Post: React.FC<Props> = ({ ...props }) => {
         }}
       >
         <Card.Header css={{ paddingBottom: 0 }}>
-          <Link href={props.link}>
+          <Link
+            href={{
+              pathname: "/post/[slug]",
+              query: { slug: props.link },
+            }}
+          >
             <Title css={{ "@lg": { fontSize: "3.5rem", lineHeight: "4rem" } }}>
               {props.title}
             </Title>

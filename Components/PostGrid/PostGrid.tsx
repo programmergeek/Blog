@@ -18,7 +18,7 @@ export const PostGrid: React.FC<Props> = ({ ...props }) => {
           text={post.description}
           date={post.date}
           imgSrc={post.thumbnail.url}
-          link={`post/${post.slug}`}
+          link={`${post.slug}`}
           key={post.title}
         />
       ))}
