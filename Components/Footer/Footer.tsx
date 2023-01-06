@@ -2,6 +2,10 @@ import Link from "next/link";
 import React from "react";
 import { Btn } from "../Button/Button";
 import { Subtext } from "../SubText/SubText";
+import styles from "../../styles/Home.module.css";
+import { Button, Tooltip } from "@nextui-org/react";
+import { HiOutlineMail } from "react-icons/hi";
+import { FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 export const Footer: React.FC = () => {
   const categories = [
@@ -16,11 +20,16 @@ export const Footer: React.FC = () => {
         backgroundColor: "rgb(142, 53, 8)",
         height: 300,
         width: "100vw",
-        marginTop: 50,
+        marginTop: 200,
+        paddingTop: 50,
+        paddingBottom: 50,
       }}
+      className={styles["content-layout"]}
     >
       <Subtext color="#fff">Category</Subtext>
-      <div style={{ display: "flex", gap: 10 }}>
+      <div
+        style={{ display: "flex", gap: 30, marginTop: 20, marginBottom: 40 }}
+      >
         {categories.map((category) => (
           <Link
             style={{ fontFamily: "Teko", color: "white" }}
@@ -32,6 +41,102 @@ export const Footer: React.FC = () => {
             {category.label}
           </Link>
         ))}
+      </div>
+      <Subtext color="#fff">Get in touch</Subtext>
+      <div style={{ display: "flex", gap: 30, marginTop: 10 }}>
+        <div>
+          <Tooltip
+            content="Email"
+            css={{
+              fontFamily: "Teko",
+              borderRadius: 0,
+              fontSize: 20,
+            }}
+          >
+            <Link href="mailto:contact@willjoseph.xyz" color="#fff">
+              <Button
+                bordered
+                ripple={false}
+                icon={
+                  <HiOutlineMail
+                    color="#fff"
+                    size={20}
+                    style={{ borderColor: "white" }}
+                  />
+                }
+                css={{
+                  borderColor: "White",
+                  minWidth: 30,
+                  minHeight: 30,
+                  borderRadius: 20,
+                }}
+              />
+            </Link>
+          </Tooltip>
+        </div>
+        <div>
+          <Tooltip
+            content="Twitter"
+            css={{
+              fontFamily: "Teko",
+              borderRadius: 0,
+              fontSize: 20,
+            }}
+          >
+            <Link href="https://twitter.com/programergeek" color="#fff">
+              <Button
+                bordered
+                ripple={false}
+                icon={
+                  <FaTwitter
+                    color="#fff"
+                    size={20}
+                    style={{ borderColor: "white" }}
+                  />
+                }
+                css={{
+                  borderColor: "White",
+                  minWidth: 30,
+                  minHeight: 30,
+                  borderRadius: 20,
+                }}
+              />
+            </Link>
+          </Tooltip>
+        </div>
+        <div>
+          <Tooltip
+            content="Linkedin"
+            css={{
+              fontFamily: "Teko",
+              borderRadius: 0,
+              fontSize: 20,
+            }}
+          >
+            <Link
+              href="https://www.linkedin.com/in/thato-will-joseph-b0aa54219/"
+              color="#fff"
+            >
+              <Button
+                bordered
+                ripple={false}
+                icon={
+                  <FaLinkedinIn
+                    color="#fff"
+                    size={20}
+                    style={{ borderColor: "white" }}
+                  />
+                }
+                css={{
+                  borderColor: "White",
+                  minWidth: 30,
+                  minHeight: 30,
+                  borderRadius: 20,
+                }}
+              />
+            </Link>
+          </Tooltip>
+        </div>
       </div>
     </footer>
   );
