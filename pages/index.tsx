@@ -10,6 +10,7 @@ import {
   SiteTitle,
   LatestPosts,
   Navbar,
+  Footer,
 } from "../Components";
 import { Col, Container, Pagination, Row } from "@nextui-org/react";
 
@@ -41,13 +42,8 @@ export default function Home() {
           />
           <LatestPosts />
         </main>
-        <footer
-          style={{
-            height: 300,
-            width: "100%",
-          }}
-        ></footer>
       </div>
+      <Footer />
     </div>
   );
 }
