@@ -1,0 +1,12 @@
+.layout{
+    display: flex;
+    flex-direction: column;
+    gap: 50;
+}
+
+@media screen and (min-width: 780px) {
+    .layout{
+        display: grid;
+        grid-template-columns: 50% auto;
+    }   
+}
