@@ -39,7 +39,7 @@ export default function Home({
             text={highlightPost.description}
             title={highlightPost.title}
           />
-          <LatestPosts posts={posts} total />
+          <LatestPosts posts={posts} total={total} />
         </main>
       </div>
       <Footer />
