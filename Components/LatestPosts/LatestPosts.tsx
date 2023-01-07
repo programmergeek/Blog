@@ -5,12 +5,13 @@ import styles from "./LatestPosts.module.css";
 
 type Props = {
   posts: any;
+  total: any;
 };
 
 export const LatestPosts: React.FC<Props> = ({ ...props }) => {
   const [posts, setPosts] = useState<any>(props.posts);
   const [currentPage, setCurrentPage] = useState(1);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(props.total);
 
   return (
     <div>

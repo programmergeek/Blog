@@ -12,6 +12,7 @@ import { getAllPostsForHome } from "../lib/getAllPostsForHome";
 export default function Home({
   highlightPost,
   posts,
+  total,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div>
@@ -38,7 +39,7 @@ export default function Home({
             text={highlightPost.description}
             title={highlightPost.title}
           />
-          <LatestPosts posts={posts} />
+          <LatestPosts posts={posts} total />
         </main>
       </div>
       <Footer />
@@ -50,12 +51,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = (await getAllPostsForHome()) as any;
   const highlightPost = data.highlightedPost;
   const posts = data.posts;
+  const total = posts.pop().total;
   console.log(highlightPost);
   console.log(posts);
   return {
     props: {
       highlightPost,
       posts,
+      total,
     },
   };
 };
