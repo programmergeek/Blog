@@ -3,39 +3,21 @@ import { Header, Post, PostGrid } from "..";
 import { Pagination } from "@nextui-org/react";
 import styles from "./LatestPosts.module.css";
 
-export const LatestPosts: React.FC = () => {
-  const [posts, setPosts] = useState<any>([]);
-  const [loading, setLoading] = useState(true);
+type Props = {
+  posts: any;
+};
+
+export const LatestPosts: React.FC<Props> = ({ ...props }) => {
+  const [posts, setPosts] = useState<any>(props.posts);
   const [currentPage, setCurrentPage] = useState(1);
   const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch("/api/latest", {
-      method: "POST",
-      body: JSON.stringify((currentPage - 1) * 8),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setTotal(data.pop().total);
-        setPosts(data);
-        console.log(data);
-        setLoading(false);
-      });
-  }, [currentPage]);
 
   return (
     <div>
       <div style={{ paddingTop: 50, paddingBottom: 50 }}>
         <Header>Latest</Header>
       </div>
-      {loading ? (
-        <div style={{ fontFamily: "Teko", fontSize: 40, textAlign: "center" }}>
-          loading...
-        </div>
-      ) : (
-        <PostGrid posts={posts} />
-      )}
+      <PostGrid posts={posts} />
       <div
         style={{
           display: "flex",

@@ -38,7 +38,7 @@ export default function Home({
             text={highlightPost.description}
             title={highlightPost.title}
           />
-          <LatestPosts />
+          <LatestPosts posts={posts} />
         </main>
       </div>
       <Footer />
