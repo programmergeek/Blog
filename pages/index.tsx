@@ -1,20 +1,18 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import {
-  Header,
   HighlightPost,
-  Post,
-  Btn,
   SiteTitle,
   LatestPosts,
   Navbar,
   Footer,
 } from "../Components";
-import { Col, Container, Pagination, Row } from "@nextui-org/react";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { getAllPostsForHome } from "../lib/getAllPostsForHome";
 
-export default function Home() {
+export default function Home({
+  highlightPost,
+  posts,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div>
       <div className={styles["content-layout"]}>
@@ -33,12 +31,12 @@ export default function Home() {
           }}
         >
           <HighlightPost
-            category="Design"
-            date="23/12/2022"
-            imgSrc="/images/gunsligner.jpg"
-            link="/design"
-            text="Big cities are known for having huge traffic congestion. Therefore, such situations are suitable for car accidents. That is why it is very important that we know how to react in such situations. In addition to how important it is to protect ourselves from healthfully when car accidents..."
-            title="Something That We Need In Difficult Times"
+            category={highlightPost.category.category}
+            date={highlightPost.date}
+            imgSrc={highlightPost.thumbnail.url}
+            link={highlightPost.slug}
+            text={highlightPost.description}
+            title={highlightPost.title}
           />
           <LatestPosts />
         </main>
@@ -47,3 +45,17 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const data = (await getAllPostsForHome()) as any;
+  const highlightPost = data.highlightedPost;
+  const posts = data.posts;
+  console.log(highlightPost);
+  console.log(posts);
+  return {
+    props: {
+      highlightPost,
+      posts,
+    },
+  };
+};
