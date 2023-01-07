@@ -24,8 +24,9 @@ export const Footer: React.FC = () => {
         marginTop: 200,
         paddingTop: 100,
         paddingBottom: 100,
+        gap: 30,
       }}
-      className={styles["content-layout"]}
+      className={`${styles["content-layout"]} ${footerStyles.layout}`}
     >
       <div>
         <Subtext color="#fff">Category</Subtext>
