@@ -52,8 +52,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const highlightPost = data.highlightedPost;
   const posts = data.posts;
   const total = posts.pop().total;
-  console.log(highlightPost);
-  console.log(posts);
   return {
     props: {
       highlightPost,
