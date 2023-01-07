@@ -2,7 +2,7 @@ import { Pagination } from "@nextui-org/react";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Navbar, PostGrid, SiteTitle } from "../../Components";
+import { Footer, Navbar, PostGrid, SiteTitle } from "../../Components";
 import { getAllPosts } from "../../lib/getAllPosts";
 import styles from "../../styles/Home.module.css";
 
@@ -45,6 +45,7 @@ export default function Search({
           onChange={(pageNum) => handleChange(pageNum)}
         />
       </div>
+      <Footer />
     </div>
   );
 }
