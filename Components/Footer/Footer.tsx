@@ -35,6 +35,7 @@ export const Footer: React.FC = () => {
         >
           {categories.map((category) => (
             <Link
+              key={category.label}
               style={{ fontFamily: "Teko", color: "white" }}
               href={{
                 pathname: "/category/[slug]",
