@@ -1,13 +1,15 @@
 import { NextPage } from "next";
+import Link from "next/link";
 import React from "react";
-import { Footer, Navbar, SiteTitle, Title } from "../Components";
+import { Footer, Navbar, SiteTitle, Text, Title } from "../Components";
 import styles from "../styles/Home.module.css";
 
 interface Props {
   statusCode: number | undefined;
+  message?: string;
 }
 
-const Error: NextPage<Props> = ({ statusCode }) => {
+const Error: NextPage<Props> = ({ statusCode, message }) => {
   return (
     <div>
       <div className={styles["content-layout"]}>
@@ -20,8 +22,19 @@ const Error: NextPage<Props> = ({ statusCode }) => {
       >
         <Title>
           Error: {statusCode} <br />
-          Woops, looks like something went wrong...
+          {message ? message : "Woops, looks like something went wrong..."}
         </Title>
+        <Link
+          href={{ pathname: "/" }}
+          style={{
+            textAlign: "center",
+            textDecoration: "underline",
+            fontFamily: "Lato",
+            color: "black",
+          }}
+        >
+          Go back home
+        </Link>
       </div>
       <Footer />
     </div>
