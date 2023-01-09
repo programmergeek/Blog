@@ -1,6 +1,7 @@
 import { Pagination } from "@nextui-org/react";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
+import Error from "../_error";
 import { useEffect, useState } from "react";
 import { Footer, Navbar, PostGrid, SiteTitle } from "../../Components";
 import { getAllPosts } from "../../lib/getAllPosts";
@@ -9,6 +10,8 @@ import styles from "../../styles/Home.module.css";
 export default function Search({
   data,
   total,
+  errorCode,
+  message,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
   const { page, search } = router.query;
@@ -28,6 +31,10 @@ export default function Search({
     // update result data everytime we go to another page
     updatePosts(data);
   }, [router.query.page, router.query.search]);
+
+  if (errorCode) {
+    return <Error statusCode={errorCode} message={message} />;
+  }
 
   return (
     <div>
@@ -54,6 +61,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { page, search } = context.query as any;
   const data = await getAllPosts(undefined, (page - 1) * 8, search as string);
   const total = data.pop().total;
+  let errorCode: number;
+  let message: string;
+  if (total === 0) {
+    errorCode = 204;
+    message = "Nothing to see here folks";
+    return {
+      props: {
+        errorCode,
+        message,
+      },
+    };
+  }
   return {
     props: {
       data,
