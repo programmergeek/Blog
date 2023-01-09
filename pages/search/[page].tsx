@@ -10,7 +10,6 @@ import styles from "../../styles/Home.module.css";
 export default function Search({
   data,
   total,
-  errorCode,
   message,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
@@ -32,8 +31,8 @@ export default function Search({
     updatePosts(data);
   }, [router.query.page, router.query.search]);
 
-  if (errorCode) {
-    return <Error statusCode={errorCode} message={message} />;
+  if (message) {
+    return <Error message={message} />;
   }
 
   return (
@@ -61,14 +60,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { page, search } = context.query as any;
   const data = await getAllPosts(undefined, (page - 1) * 8, search as string);
   const total = data.pop().total;
-  let errorCode: number;
   let message: string;
   if (total === 0) {
-    errorCode = 204;
     message = "Nothing to see here folks";
     return {
       props: {
-        errorCode,
         message,
       },
     };
