@@ -5,7 +5,7 @@ import { Footer, Navbar, SiteTitle, Text, Title } from "../Components";
 import styles from "../styles/Home.module.css";
 
 interface Props {
-  statusCode: number | undefined;
+  statusCode?: number | undefined;
   message?: string;
 }
 
@@ -21,7 +21,7 @@ const Error: NextPage<Props> = ({ statusCode, message }) => {
         style={{ display: "grid", placeContent: "center", minHeight: "50vh" }}
       >
         <Title>
-          Error: {statusCode} <br />
+          {statusCode ? `Error: ${statusCode}` : ""} <br />
           {message ? message : "Woops, looks like something went wrong..."}
         </Title>
         <Link
