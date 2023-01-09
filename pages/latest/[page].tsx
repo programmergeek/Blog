@@ -63,6 +63,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await getAllPosts(undefined, (page - 1) * 8);
   const total = data.pop().total;
   let message: string;
+  if (page == 1) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/",
+      },
+    };
+  }
   if (total === 0) {
     message = "Nothing to see here folks";
     return {
