@@ -10,7 +10,7 @@ import styles from "../../styles/Home.module.css";
 
 const Post: React.FC = ({
   data,
-}: InferGetStaticPropsType<typeof getStacticProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [post, updatePost] = useState(data);
   return (
     <div>
@@ -61,7 +61,7 @@ const Post: React.FC = ({
 
 export default Post;
 
-export const getStacticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as any;
   const data = (await getPostBySlug(slug)) as any;
   console.log(data);
