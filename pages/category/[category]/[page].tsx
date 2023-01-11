@@ -60,7 +60,6 @@ export default Category;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { category, page } = context.query as any;
-  console.log(context.query);
   let data: any;
   if (category == "web-dev") {
     data = await getPostsByCategories("Web Dev", (page - 1) * 8);
