@@ -1,4 +1,4 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import React, { useState } from "react";
 import { getPostBySlug } from "../../lib";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -10,7 +10,7 @@ import styles from "../../styles/Home.module.css";
 
 const Post: React.FC = ({
   data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStacticProps>) => {
   const [post, updatePost] = useState(data);
   return (
     <div>
@@ -61,8 +61,8 @@ const Post: React.FC = ({
 
 export default Post;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { slug } = context.query as any;
+export const getStacticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params as any;
   const data = (await getPostBySlug(slug)) as any;
   console.log(data);
   return {
