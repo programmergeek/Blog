@@ -25,7 +25,7 @@ const Post: React.FC = ({
           paddingLeft: 20,
         }}
       >
-        <Title css={{ fontSize: 120 }}> {post.title} </Title>
+        <Title style={{ fontSize: 100 }}> {post.title} </Title>
         <Image
           src={`https:${post.thumbnail.url}`}
           alt={post.thumbnail.title}
