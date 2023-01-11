@@ -6,7 +6,7 @@ import { RenderOption } from "../../Contentful/options";
 import { Footer, Navbar, SiteTitle, Title } from "../../Components";
 import { Image } from "@nextui-org/react";
 import Link from "next/link";
-import styles from "../../styles/Post.module.css";
+import styles from "../../styles/Home.module.css";
 
 const Post: React.FC = ({
   data,
@@ -14,7 +14,9 @@ const Post: React.FC = ({
   const [post, updatePost] = useState(data);
   return (
     <div>
-      <SiteTitle />
+      <div className={styles["content-layout"]}>
+        <SiteTitle />
+      </div>
       <Navbar />
       <div
         style={{
