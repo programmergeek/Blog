@@ -35,7 +35,7 @@ export default function Home({
             category={highlightPost.category.category}
             date={highlightPost.date}
             imgSrc={highlightPost.thumbnail.url}
-            link={highlightPost.slug}
+            link={`/post/${highlightPost.slug}`}
             text={highlightPost.description}
             title={highlightPost.title}
           />
