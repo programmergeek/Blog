@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import React, { useState } from "react";
 import { getPostBySlug } from "../../lib";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -7,6 +7,7 @@ import { Footer, Navbar, SiteTitle, Title } from "../../Components";
 import { Image } from "@nextui-org/react";
 import Link from "next/link";
 import styles from "../../styles/Home.module.css";
+import { getAllPosts } from "../../lib/getAllPosts";
 
 const Post: React.FC = ({
   data,
@@ -60,6 +61,18 @@ const Post: React.FC = ({
 };
 
 export default Post;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = (await getAllPosts()) as any;
+  posts.pop();
+  const paths = posts.map((post: any) => ({
+    params: { slug: post.slug },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as any;
