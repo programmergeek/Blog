@@ -15,7 +15,7 @@ export const LatestPosts: React.FC<Props> = ({ ...props }) => {
 
   return (
     <div>
-      <div style={{ paddingTop: 50, paddingBottom: 50 }}>
+      <div style={{ paddingTop: 50 }}>
         <Header>Latest</Header>
       </div>
       <PostGrid posts={posts} />
