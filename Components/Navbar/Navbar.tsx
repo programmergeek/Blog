@@ -45,8 +45,8 @@ export const Navbar: React.FC<NavbarProps> = ({ css, ...props }) => {
       {...props}
       containerCss={{
         paddingRight: 20,
-        paddingLeft: 5,
-        minWidth: 1440,
+        paddingLeft: 20,
+        maxWidth: 1440,
       }}
     >
       <NextUINav.Toggle showIn="xs" aria-label="toggle navigation" />
