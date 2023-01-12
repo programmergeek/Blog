@@ -2,10 +2,9 @@ import { Pagination } from "@nextui-org/react";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { Footer, Navbar, PostGrid, SiteTitle } from "../../../Components";
+import { Layout, PostGrid } from "../../../Components";
 import { getPostsByCategories } from "../../../lib/getPostsByCategories";
 import Error from "../../_error";
-import styles from "../../../styles/Home.module.css";
 import Head from "next/head";
 
 const Category: React.FC = ({
@@ -42,21 +41,18 @@ const Category: React.FC = ({
       <Head>
         <title>{title}</title>
       </Head>
-      <div className={styles["content-layout"]}>
-        <SiteTitle />
-      </div>
-      <Navbar />
-      <div className={styles["content-layout"]}>
+      <Layout>
         <PostGrid posts={posts} key={router.asPath} />
-      </div>
-      <div style={{ display: "grid", placeContent: "center", paddingTop: 50 }}>
-        <Pagination
-          total={Math.ceil(totalPosts / 8)}
-          initialPage={parseInt(currentPage as string)}
-          onChange={(pageNum) => handleChange(pageNum)}
-        />
-      </div>
-      <Footer />
+        <div
+          style={{ display: "grid", placeContent: "center", paddingTop: 50 }}
+        >
+          <Pagination
+            total={Math.ceil(totalPosts / 8)}
+            initialPage={parseInt(currentPage as string)}
+            onChange={(pageNum) => handleChange(pageNum)}
+          />
+        </div>
+      </Layout>
     </div>
   );
 };
