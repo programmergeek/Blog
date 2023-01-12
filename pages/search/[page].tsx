@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 import { Footer, Navbar, PostGrid, SiteTitle } from "../../Components";
 import { getAllPosts } from "../../lib/getAllPosts";
 import styles from "../../styles/Home.module.css";
+import Head from "next/head";
 
 export default function Search({
   data,
   total,
   message,
+  title,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
   const { page, search } = router.query;
@@ -37,6 +39,9 @@ export default function Search({
 
   return (
     <div>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <div className={styles["content-layout"]}>
         <SiteTitle />
       </div>
@@ -60,6 +65,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { page, search } = context.query as any;
   const data = await getAllPosts(undefined, (page - 1) * 8, search as string);
   const total = data.pop().total;
+  const title = search;
   let message: string;
   if (total === 0) {
     message = "Nothing to see here folks";
@@ -73,6 +79,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       data,
       total,
+      title,
     },
   };
 };

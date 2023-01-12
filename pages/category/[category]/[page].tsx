@@ -6,11 +6,13 @@ import { Footer, Navbar, PostGrid, SiteTitle } from "../../../Components";
 import { getPostsByCategories } from "../../../lib/getPostsByCategories";
 import Error from "../../_error";
 import styles from "../../../styles/Home.module.css";
+import Head from "next/head";
 
 const Category: React.FC = ({
   data,
   total,
   errorMessage,
+  title,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter();
   const { page, category } = router.query;
@@ -37,6 +39,9 @@ const Category: React.FC = ({
 
   return (
     <div>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <div className={styles["content-layout"]}>
         <SiteTitle />
       </div>
@@ -60,13 +65,17 @@ export default Category;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { category, page } = context.query as any;
+  let title;
   let data: any;
   if (category == "web-dev") {
     data = await getPostsByCategories("Web Dev", (page - 1) * 8);
+    title = "Web Dev";
   } else if (category == "design") {
     data = await getPostsByCategories("Design", (page - 1) * 8);
+    title = "Design";
   } else if (category == "just-me") {
     data = await getPostsByCategories("Just Me", (page - 1) * 8);
+    title = "Just Me";
   } else {
     return {
       props: {
@@ -79,6 +88,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       data,
       total,
+      title,
     },
   };
 };

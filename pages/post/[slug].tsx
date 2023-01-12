@@ -3,11 +3,17 @@ import React, { useState } from "react";
 import { getPostBySlug } from "../../lib";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { RenderOption } from "../../Contentful/options";
-import { Footer, Navbar, SiteTitle, Title } from "../../Components";
+import {
+  Footer,
+  Navbar,
+  SiteTitle,
+  Title as PostTitle,
+} from "../../Components";
 import { Image } from "@nextui-org/react";
 import Link from "next/link";
 import styles from "../../styles/Home.module.css";
 import { getAllPosts } from "../../lib/getAllPosts";
+import Head from "next/head";
 
 const Post: React.FC = ({
   data,
@@ -15,6 +21,9 @@ const Post: React.FC = ({
   const [post, updatePost] = useState(data);
   return (
     <div>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
       <div className={styles["content-layout"]}>
         <SiteTitle />
       </div>
@@ -28,7 +37,7 @@ const Post: React.FC = ({
           paddingLeft: 20,
         }}
       >
-        <Title style={{ fontSize: 100 }}> {post.title} </Title>
+        <PostTitle style={{ fontSize: 100 }}> {post.title} </PostTitle>
         <Image
           src={`https:${post.thumbnail.url}`}
           alt={post.thumbnail.title}

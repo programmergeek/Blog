@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { Footer, Navbar, SiteTitle, Text, Title } from "../Components";
@@ -12,6 +13,9 @@ interface Props {
 const Error: NextPage<Props> = ({ statusCode, message }) => {
   return (
     <div>
+      <Head>
+        <title>Page not found</title>
+      </Head>
       <div className={styles["content-layout"]}>
         <SiteTitle />
       </div>
