@@ -28,7 +28,7 @@ export const SiteTitle: React.FC = () => {
           backgroundColor: "rgb(142, 53, 8)",
           position: "absolute",
           top: 100,
-          right: -20,
+          left: 130,
           zIndex: 0,
         }}
       ></div>
