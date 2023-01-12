@@ -11,3 +11,4 @@ export * from "./LatestPosts/LatestPosts";
 export * from "./PostGrid/PostGrid";
 export * from "./Navbar/Navbar";
 export * from "./Footer/Footer";
+export * from "./Layout/Layout";
