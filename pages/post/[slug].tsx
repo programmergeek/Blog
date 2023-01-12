@@ -5,6 +5,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { RenderOption } from "../../Contentful/options";
 import {
   Footer,
+  Layout,
   Navbar,
   SiteTitle,
   Title as PostTitle,
@@ -24,47 +25,40 @@ const Post: React.FC = ({
       <Head>
         <title>{post.title}</title>
       </Head>
-      <div className={styles["content-layout"]}>
-        <SiteTitle />
-      </div>
-      <Navbar />
-      <div
-        style={{
-          maxWidth: 1000,
-          marginRight: "auto",
-          marginLeft: "auto",
-          paddingRight: 20,
-          paddingLeft: 20,
-        }}
-      >
-        <PostTitle style={{ fontSize: 100 }}> {post.title} </PostTitle>
-        <Image
-          src={`https:${post.thumbnail.url}`}
-          alt={post.thumbnail.title}
-          width={"100"}
-          height="100"
-          objectFit="cover"
-        />
-        <div style={{ marginTop: 30 }}>
-          {documentToReactComponents(post.body, RenderOption)}
+      <Layout>
+        <div className={styles["content-layout"]}>
+          <PostTitle style={{ fontSize: 100 }}> {post.title} </PostTitle>
+          <Image
+            src={`https:${post.thumbnail.url}`}
+            alt={post.thumbnail.title}
+            width={"100"}
+            height="100"
+            objectFit="cover"
+          />
+          <div style={{ marginTop: 30 }}>
+            {documentToReactComponents(post.body, RenderOption)}
+          </div>
+          <div
+            style={{
+              display: "grid",
+              placeContent: "center",
+              minHeight: "10vh",
+            }}
+          >
+            <Link
+              href={{ pathname: "/" }}
+              style={{
+                textAlign: "center",
+                textDecoration: "underline",
+                fontFamily: "Lato",
+                color: "black",
+              }}
+            >
+              Go back home
+            </Link>
+          </div>
         </div>
-      </div>
-      <div
-        style={{ display: "grid", placeContent: "center", minHeight: "10vh" }}
-      >
-        <Link
-          href={{ pathname: "/" }}
-          style={{
-            textAlign: "center",
-            textDecoration: "underline",
-            fontFamily: "Lato",
-            color: "black",
-          }}
-        >
-          Go back home
-        </Link>
-      </div>
-      <Footer />
+      </Layout>
     </div>
   );
 };
