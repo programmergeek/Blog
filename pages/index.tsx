@@ -8,6 +8,7 @@ import {
 } from "../Components";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { getAllPostsForHome } from "../lib/getAllPostsForHome";
+import Head from "next/head";
 
 export default function Home({
   highlightPost,
@@ -16,6 +17,9 @@ export default function Home({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div>
+      <Head>
+        <title>Blog</title>
+      </Head>
       <div className={styles["content-layout"]}>
         <div
           style={{
