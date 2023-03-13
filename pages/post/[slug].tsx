@@ -35,7 +35,7 @@ const Post: React.FC = ({
             height="100"
             objectFit="cover"
           />
-          <div style={{ marginTop: 30 }}>
+          <div style={{ marginTop: 30, paddingRight: 60, paddingLeft: 60 }}>
             {documentToReactComponents(post.body, RenderOption)}
           </div>
           <div
