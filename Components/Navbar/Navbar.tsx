@@ -5,10 +5,10 @@ import {
   Navbar as NextUINav,
   NavbarProps,
 } from "@nextui-org/react";
-import { Btn } from "../Button/Button";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { useRouter } from "next/router";
+import style from "../../styles/Navbar.module.css";
 
 type Search = {
   search: string;
@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ css, ...props }) => {
       <NextUINav.Content hideIn="xs">
         {collapseItems.map((item) => (
           <NextUINav.Link key={item.slug} href={`/category/${item.slug}`}>
-            <Btn size="lg">{item.label}</Btn>
+            <button className={style["nav-btn"]}>{item.label}</button>
           </NextUINav.Link>
         ))}
       </NextUINav.Content>
