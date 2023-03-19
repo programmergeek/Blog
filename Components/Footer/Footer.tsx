@@ -3,6 +3,7 @@ import React from "react";
 import { Btn } from "../Button/Button";
 import { Subtext } from "../SubText/SubText";
 import styles from "../../styles/Home.module.css";
+import style from "../../styles/Layout.module.css";
 import footerStyles from "./Footer.module.css";
 import { Button, Tooltip } from "@nextui-org/react";
 import { HiOutlineMail } from "react-icons/hi";
@@ -21,19 +22,18 @@ export const Footer: React.FC = () => {
         backgroundColor: "rgb(142, 53, 8)",
         width: "100vw",
       }}
+      className={style.layout}
     >
       <div
         style={{
           height: "fit-content",
           marginTop: 50,
-          paddingTop: 100,
-          paddingBottom: 100,
+          paddingTop: 50,
+          paddingBottom: 50,
           gap: 30,
           maxWidth: 1440,
           marginLeft: "auto",
           marginRight: "auto",
-          paddingLeft: 20,
-          paddingRight: 20,
         }}
         className={`${footerStyles.layout}`}
       >
@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
                   fontSize: 20,
                 }}
               >
-                <Link href="mailto:contact@willjoseph.xyz" color="#fff">
+                <Link href="mailto:thatowilljoseph@gmail.com" color="#fff">
                   <Button
                     bordered
                     ripple={false}
@@ -162,8 +162,8 @@ export const Footer: React.FC = () => {
             Welcome to my little corner of the internet. A place where I can
             document things I am learning about or just leave something simillar
             to a public journal entry. Hopefully you find the content on here
-            helpful in someway. If read my stuff and think I seem like a cool
-            guy, feel free to reach out.{" "}
+            helpful in someway. If you read my stuff and think I seem like a
+            cool guy, feel free to reach out.{" "}
           </Subtext>
           <Subtext
             color="#fff"
