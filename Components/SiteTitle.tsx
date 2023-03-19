@@ -1,5 +1,6 @@
 import { Link } from "@nextui-org/react";
 import React from "react";
+import style from "../styles/SiteTitle.module.css";
 
 export const SiteTitle: React.FC = () => {
   return (
@@ -11,27 +12,17 @@ export const SiteTitle: React.FC = () => {
     >
       <Link href="/" color="inherit" css={{ position: "relative", zIndex: 10 }}>
         <p
+          id={style.siteTitle}
           style={{
             fontFamily: "Teko",
-            fontSize: 120,
             letterSpacing: ".005rem",
             zIndex: 10,
           }}
         >
           Blog
         </p>
+        <div id={style.bar}></div>
       </Link>
-      <div
-        style={{
-          height: 10,
-          width: 75,
-          backgroundColor: "rgb(142, 53, 8)",
-          position: "absolute",
-          top: 100,
-          left: 130,
-          zIndex: 0,
-        }}
-      ></div>
     </div>
   );
 };

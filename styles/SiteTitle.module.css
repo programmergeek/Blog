@@ -1,0 +1,29 @@
+#siteTitle {
+  font-size: 80px;
+  line-height: 80px;
+}
+
+#bar {
+  height: 7px;
+  width: 75px;
+  background-color: rgb(142, 53, 8);
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(0%, -50%);
+  z-index: 0;
+}
+
+@media screen and (min-width: 600px) {
+  #siteTitle {
+    font-size: 100px;
+    line-height: 120px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #siteTitle {
+    font-size: 120px;
+    line-height: 140px;
+  }
+}
