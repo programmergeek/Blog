@@ -1,0 +1,32 @@
+.layout {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .layout {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .layout {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .layout {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .layout {
+    padding-left: 225px;
+    padding-right: 225px;
+  }
+}
