@@ -5,10 +5,50 @@ import { Text, Title } from "../Components";
 export const RenderOption: Options = {
   renderNode: {
     [BLOCKS.HEADING_1]: (node, children) => {
-      return <Title> {children} </Title>;
+      return (
+        <Title
+          css={{
+            fontSize: "$5xl",
+            lineHeight: "40px",
+            marginBottom: "10px",
+            marginTop: "30px",
+            "@sm": {
+              fontSize: "$6xl",
+              lineHeight: "$6xl",
+            },
+            "@md": {
+              fontSize: "$8xl",
+              lineHeight: "$8xl",
+            },
+          }}
+        >
+          {" "}
+          {children}{" "}
+        </Title>
+      );
     },
     [BLOCKS.HEADING_2]: (node, children) => {
-      return <Title style={{ fontSize: 65 }}> {children} </Title>;
+      return (
+        <Title
+          css={{
+            fontSize: "$4xl",
+            lineHeight: "40px",
+            marginBottom: "10px",
+            marginTop: "30px",
+            "@sm": {
+              fontSize: "$5xl",
+              lineHeight: "$6xl",
+            },
+            "@md": {
+              fontSize: "$6xl",
+              lineHeight: "$8xl",
+            },
+          }}
+        >
+          {" "}
+          {children}{" "}
+        </Title>
+      );
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return <Text>{children}</Text>;

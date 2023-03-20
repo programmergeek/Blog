@@ -13,6 +13,7 @@ import {
 import { Image } from "@nextui-org/react";
 import Link from "next/link";
 import styles from "../../styles/Home.module.css";
+import headerStyles from "../../styles/Headers.module.css";
 import { getAllPosts } from "../../lib/getAllPosts";
 import Head from "next/head";
 
@@ -27,7 +28,9 @@ const Post: React.FC = ({
       </Head>
       <Layout>
         <div className={styles["content-layout"]}>
-          <PostTitle style={{ fontSize: 100 }}> {post.title} </PostTitle>
+          <PostTitle className={headerStyles["post-title"]}>
+            {post.title}
+          </PostTitle>
           <Image
             src={`https:${post.thumbnail.url}`}
             alt={post.thumbnail.title}
@@ -35,7 +38,7 @@ const Post: React.FC = ({
             height="100"
             objectFit="cover"
           />
-          <div style={{ marginTop: 30, paddingRight: 60, paddingLeft: 60 }}>
+          <div style={{ marginTop: 30 }}>
             {documentToReactComponents(post.body, RenderOption)}
           </div>
           <div
