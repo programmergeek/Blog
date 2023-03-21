@@ -5,7 +5,7 @@ export const Text: React.FC<TextProps> = ({ css, ...props }) => {
   return (
     <NextUIText
       css={{
-        fontFamily: "Lato",
+        fontFamily: "Rubik",
         fontSize: 16,
         "@md": {
           fontSize: 20,
