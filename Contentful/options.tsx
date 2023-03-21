@@ -76,6 +76,8 @@ export const RenderOption: Options = {
             width: "100%",
             borderRadius: "5px",
             position: "relative",
+            marginTop: 20,
+            marginBottom: 20,
           }}
         >
           <code style={{ backgroundColor: "transparent", color: "white" }}>
@@ -91,8 +93,8 @@ export const RenderOption: Options = {
               paddingBottom: 3,
               fontSize: 12,
               position: "absolute",
-              top: 5,
-              right: 5,
+              top: 10,
+              right: 10,
               fontFamily: "monospace",
               border: "none",
               borderRadius: 2,
