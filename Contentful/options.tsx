@@ -114,9 +114,14 @@ export const RenderOption: Options = {
   renderMark: {
     [MARKS.CODE]: (text) => {
       return (
-        <code style={{ color: "black", backgroundColor: "white" }}>
-          {" "}
-          {text}{" "}
+        <code
+          style={{
+            color: "rgb(142, 53, 8)",
+            backgroundColor: "transparent",
+            fontSize: 16,
+          }}
+        >
+          {text}
         </code>
       );
     },
