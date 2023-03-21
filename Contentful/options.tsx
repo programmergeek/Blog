@@ -1,5 +1,6 @@
 import { Options } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { useEffect, useState } from "react";
 import { Text, Title } from "../Components";
 
 export const RenderOption: Options = {
@@ -52,6 +53,60 @@ export const RenderOption: Options = {
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return <Text>{children}</Text>;
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+      const codeSnippet =
+        node.data.target.fields.codeBlock.content[0].content[0].value;
+      const [isCopied, updateIsCopied] = useState(false);
+
+      useEffect(() => {
+        setTimeout(() => updateIsCopied(false), 2000);
+      }, [isCopied]);
+      return (
+        <div
+          style={{
+            backgroundColor: "#303030",
+            color: "white",
+            paddingLeft: 15,
+            paddingRight: 15,
+            paddingTop: 10,
+            paddingBottom: 10,
+            overflow: "auto",
+            fontFamily: "monospace",
+            width: "100%",
+            borderRadius: "5px",
+            position: "relative",
+          }}
+        >
+          <code style={{ backgroundColor: "transparent", color: "white" }}>
+            {codeSnippet}
+          </code>
+          <button
+            style={{
+              backgroundColor: "rgb(142, 53, 8)",
+              color: "white",
+              paddingLeft: 12,
+              paddingRight: 12,
+              paddingTop: 3,
+              paddingBottom: 3,
+              fontSize: 12,
+              position: "absolute",
+              top: 5,
+              right: 5,
+              fontFamily: "monospace",
+              border: "none",
+              borderRadius: 2,
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              navigator.clipboard.writeText(codeSnippet);
+              updateIsCopied(true);
+            }}
+          >
+            {isCopied ? "copied" : "copy"}
+          </button>
+        </div>
+      );
     },
   },
   renderMark: {
