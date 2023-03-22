@@ -1,5 +1,6 @@
 import { Options } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { Image } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { Text, Title } from "../Components";
 
@@ -63,6 +64,21 @@ export const RenderOption: Options = {
     },
     [BLOCKS.TABLE_CELL]: (node, children) => {
       return <td style={{ paddingLeft: 5, paddingRight: 5 }}>{children}</td>;
+    },
+    [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+      return (
+        <div>
+          <Image
+            src={`https://${node.data.target.fields.file.url}`}
+            css={{
+              borderRadius: 5,
+              marginTop: "20px",
+              marginBottom: "20px",
+              zIndex: 50,
+            }}
+          />
+        </div>
+      );
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
       const codeSnippet =
