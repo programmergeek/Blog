@@ -23,8 +23,7 @@ export const RenderOption: Options = {
             },
           }}
         >
-          {" "}
-          {children}{" "}
+          {children}
         </Title>
       );
     },
@@ -46,13 +45,24 @@ export const RenderOption: Options = {
             },
           }}
         >
-          {" "}
-          {children}{" "}
+          {children}
         </Title>
       );
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return <Text>{children}</Text>;
+    },
+    [BLOCKS.TABLE]: (node, children) => {
+      return <table>{children}</table>;
+    },
+    [BLOCKS.TABLE_ROW]: (node, children) => {
+      return <tr>{children}</tr>;
+    },
+    [BLOCKS.TABLE_HEADER_CELL]: (node, children) => {
+      return <th>{children}</th>;
+    },
+    [BLOCKS.TABLE_CELL]: (node, children) => {
+      return <td style={{ paddingLeft: 5, paddingRight: 5 }}>{children}</td>;
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
       const codeSnippet =
