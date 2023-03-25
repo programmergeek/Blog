@@ -152,7 +152,12 @@ export const Post: React.FC<Props> = ({ ...props }) => {
               query: { slug: props.link },
             }}
           >
-            <Title css={{ "@lg": { fontSize: "3.5rem", lineHeight: "4rem" } }}>
+            <Title
+              css={{
+                fontSize: "2rem",
+                "@lg": { fontSize: "3.5rem", lineHeight: "4rem" },
+              }}
+            >
               {props.title}
             </Title>
           </Link>
