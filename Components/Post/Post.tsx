@@ -154,8 +154,11 @@ export const Post: React.FC<Props> = ({ ...props }) => {
           >
             <Title
               css={{
-                fontSize: "2rem",
-                "@lg": { fontSize: "3.5rem", lineHeight: "4rem" },
+                "@md": {
+                  fontSize: "2.5rem",
+                  lineHeight: "3rem",
+                },
+                "@lg": { fontSize: "3.5rem", lineHeight: "3.5rem" },
               }}
             >
               {props.title}
@@ -163,7 +166,13 @@ export const Post: React.FC<Props> = ({ ...props }) => {
           </Link>
         </Card.Header>
         <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
-          <Text css={{ fontSize: 16, "@md": { fontSize: 16 } }}>
+          <Text
+            css={{
+              fontSize: 13,
+              "@md": { fontSize: 14 },
+              "@lg": { fontSize: 16 },
+            }}
+          >
             {props.text}
           </Text>
         </Card.Body>

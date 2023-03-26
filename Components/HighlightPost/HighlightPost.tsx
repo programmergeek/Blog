@@ -146,7 +146,9 @@ export const HighlightPost: React.FC<Props> = ({ ...props }) => {
       >
         <Card.Header css={{ paddingBottom: 0 }}>
           <Link href={props.link}>
-            <Title>{props.title}</Title>
+            <Title css={{ "@lg": { fontSize: "7rem", lineHeight: "7.5rem" } }}>
+              {props.title}
+            </Title>
           </Link>
         </Card.Header>
         <Card.Body css={{ paddingTop: 0, wordSpacing: ".22em" }}>
