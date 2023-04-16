@@ -1,20 +1,12 @@
 import { extractPosts } from "./extractPosts";
 import { client } from "../Contentful/setup";
 
-export const getPostsByCategories = async (
-  category: "Web Dev" | "Design" | "Just Me",
-  skip: number
-) => {
+export const getPostsByCategories = async (category: string, skip: number) => {
   let posts;
-  const categories = {
-    "Web Dev": "webDev",
-    Design: "design",
-    "Just Me": "justMe",
-  };
   await client
     .getEntries({
       content_type: "post",
-      "metadata.tags.sys.id[in]": categories[category],
+      "metadata.tags.sys.id[in]": category,
       limit: 8,
       skip: skip,
     })
@@ -23,5 +15,5 @@ export const getPostsByCategories = async (
       posts = [...posts, { total: entreies.total }];
     });
 
-  return posts;
+  return posts as any;
 };

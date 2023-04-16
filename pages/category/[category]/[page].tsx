@@ -62,16 +62,9 @@ export default Category;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { category, page } = context.query as any;
   let title;
-  let data: any;
-  if (category == "web-dev") {
-    data = await getPostsByCategories("Web Dev", (page - 1) * 8);
-    title = "Web Dev";
-  } else if (category == "design") {
-    data = await getPostsByCategories("Design", (page - 1) * 8);
-    title = "Design";
-  } else if (category == "just-me") {
-    data = await getPostsByCategories("Just Me", (page - 1) * 8);
-    title = "Just Me";
+  const data = await getPostsByCategories(camelCase(category), (page - 1) * 8);
+  if (data[0].category) {
+    title = data[0].category.category;
   } else {
     return {
       props: {
@@ -87,4 +80,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       title,
     },
   };
+};
+
+const camelCase = (str: string) => {
+  const wordArray = str.split("-");
+  const out = wordArray.map((word, index) => {
+    if (index > 0) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+    return word.charAt(0).toLowerCase() + word.slice(1);
+  });
+
+  return out.join("");
 };
