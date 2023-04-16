@@ -25,6 +25,14 @@ export const Navbar: React.FC<NavbarProps> = ({ css, ...props }) => {
   };
   const collapseItems = [
     {
+      label: "#JavaScript",
+      slug: "javascript",
+    },
+    {
+      label: "#React",
+      slug: "react",
+    },
+    {
       label: "#Web Dev",
       slug: "web-dev",
     },
@@ -48,11 +56,13 @@ export const Navbar: React.FC<NavbarProps> = ({ css, ...props }) => {
         padding: 0,
       }}
     >
-      <NextUINav.Toggle showIn="xs" aria-label="toggle navigation" />
-      <NextUINav.Content hideIn="xs">
+      <NextUINav.Toggle showIn="sm" aria-label="toggle navigation" />
+      <NextUINav.Content hideIn="sm">
         {collapseItems.map((item) => (
           <NextUINav.Link key={item.slug} href={`/category/${item.slug}`}>
-            <button className={style["nav-btn"]}>{item.label}</button>
+            <button style={{ cursor: "pointer" }} className={style["nav-btn"]}>
+              {item.label}
+            </button>
           </NextUINav.Link>
         ))}
       </NextUINav.Content>
